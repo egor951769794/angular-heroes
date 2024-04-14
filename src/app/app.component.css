@@ -1,0 +1,74 @@
+.bg {
+  background-color: rgb(217, 227, 245);
+  padding-bottom: 500px;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+h1 {
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+    font-weight: 900;
+  }
+  h2, h3 {
+    color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+  }
+  body {
+    margin: 0;
+  }
+  body, input[type="text"], button {
+    color: #888;
+    font-family: Cambria, Georgia;
+  }
+  * {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 15px 25px;
+    display: block;
+    border-radius: 12px;
+    background: rgb(63, 121, 227);
+  }
+
+  .links-navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 250px;
+    padding: 20px 0;
+    
+  }
+
+
+  .header {
+    padding-left: 20px;
+    padding-top: 10px;
+  }
+
+@media(max-width: 350px) {
+  .links-navbar {
+    margin: 0 50px;
+    justify-content: center;
+  }
+  a {
+    min-width: 150px;
+    margin-bottom: 10px;
+  }
+  .header {
+    padding: 0px;
+    background: rgb(173, 197, 243);
+  }
+  h1 {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 200%;
+  }
+}  

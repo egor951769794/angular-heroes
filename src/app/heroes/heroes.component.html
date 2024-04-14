@@ -1,0 +1,58 @@
+<div class="heroes-list">
+  <h2>My cities</h2>
+
+  <div class="add-city-block">
+    <h3>New city</h3>
+    <form (ngSubmit)="add(heroName.value, heroCountry.value, heroPopulation.value); 
+    heroName.value=''; heroCountry.value=''; heroPopulation.value=''; ; setFilters()">
+
+      <label for="new-hero-name">Name: </label>
+      <input id="new-hero-name" #heroName />
+      <label for="new-hero-country">Country: </label>
+      <input id="new-hero-country" #heroCountry>
+      <label for="new-hero-population">Population: </label>
+      <input id="new-hero-population" #heroPopulation>
+      <label for="new-hero-capital">Capital city: </label>
+      <input type="checkbox" id="new-hero-capital" name="new-hero-capital" [(ngModel)]="addCityCapitalCheck">
+
+      <button 
+        type="submit" 
+        class="add-button">
+        Add city
+      </button>
+
+    </form>
+  </div>
+
+  <div class="filters">
+    <h3>Filters</h3>
+    <ul class="filter-country">
+      <h3>Location</h3>
+      <li *ngFor="let country of countries; index as i" class="country-list-elem">
+        <label>
+          <input type="checkbox" name="1" [(ngModel)]="filters[0][i]">
+          {{country}}
+        </label>
+      </li>
+    </ul>
+    <div class="filter-population">
+      <h3>Max. population</h3>
+      <input class="pop-input" type="range" name="population" min="{{minPopulation}}" max="{{maxPopulation}}" step="10000" value="{{filters[1]}}" [(ngModel)]="filters[1]">
+      {{filters[1]}}
+    </div>
+    <div class="filter-capital">
+      <h3>Сapital cities only </h3>
+      <input class="capital-check" type="checkbox" name="capital" [(ngModel)]="filters[2]">
+    </div>
+    <div class="filter-update" (click)="getHeroes()">update</div>
+  </div>
+
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes">
+      <a routerLink="/detail/{{hero.id}}">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </a>
+      <button type="button" class="delete" title="delete hero" (click)="delete(hero)">x</button>
+    </li>
+  </ul>
+</div>
